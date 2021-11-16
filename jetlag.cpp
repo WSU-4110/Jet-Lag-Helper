@@ -23,7 +23,7 @@ JetLag::JetLag(QWidget *parent)
     Cities c;
 
     QStringList l;
-    for (int i = 0; i < c.allCities.size(); i++)
+    for (unsigned long i = 0; i < c.allCities.size(); i++)
     {
         QString cityName;
         cityName = QString::fromStdString(c.allCities[i].cityName);
