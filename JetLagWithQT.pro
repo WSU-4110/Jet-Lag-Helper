@@ -9,11 +9,17 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    cities.cpp \
+    city.cpp \
     main.cpp \
-    jetlag.cpp
+    jetlag.cpp \
+    trip.cpp
 
 HEADERS += \
-    jetlag.h
+    cities.h \
+    city.h \
+    jetlag.h \
+    trip.h
 
 FORMS += \
     jetlag.ui
