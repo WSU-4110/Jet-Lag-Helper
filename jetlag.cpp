@@ -15,29 +15,30 @@
 
 
 
-
-
-
-
-
-
-
-
 JetLag::JetLag(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::JetLag)
 {
     ui->setupUi(this);
     Cities c;
-    std::vector<std::string> u;
-    u = c.getDistinctCountries();
-    for (int j = 0; j < u.size(); j++)
+
+    QStringList l;
+    for (int i = 0; i < c.allCities.size(); i++)
     {
-        QString countryName;
-        countryName = QString::fromStdString(u[j]);
-        ui->cboOriginCountry->addItem(countryName);
-        ui->cboDestinationCountry->addItem(countryName);
+        QString cityName;
+        cityName = QString::fromStdString(c.allCities[i].cityName);
+        l.append( cityName);
+
     }
+
+    QCompleter *comp = new QCompleter(l, this);
+    comp->setCaseSensitivity(Qt::CaseInsensitive);
+    comp->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
+
+    ui->txtOriginCityName->setCompleter(comp);
+    ui->txtDestinationCityName->setCompleter(comp);
+
+
 
 }
 
@@ -56,11 +57,11 @@ void JetLag::on_cmdGetPlan_clicked()
     std::string s;
     QString s2;
     int leaveTime = 0;
-    s2 = ui->cboOriginName->currentText();
+    s2 = ui->txtOriginCityName->text();
     s = s2.toStdString();
     o = c.getCityByName(s);
 
-    s2 = ui->cboDestinationName->currentText();
+    s2 = ui->txtDestinationCityName->text();
     s = s2.toStdString();
     d = c.getCityByName(s);
 
@@ -84,41 +85,5 @@ void JetLag::on_JetLag_tabifiedDockWidgetActivated(QDockWidget *dockWidget)
 }
 
 
-void JetLag::on_cboOriginCountry_currentTextChanged(const QString &arg1)
-{
-    // clear out origin cities menu and replace with selected country
 
-    Cities c;
-    std::vector<City> t;
-    t = c.getCitiesForCountry(arg1.toStdString());
-    ui->cboOriginName->clear();
-    for (int var = 0; var < t.size(); ++var)
-    {
-        QString s;
-
-         s = QString::fromStdString(t[var].cityName);
-         ui->cboOriginName->addItem(s);
-
-    }
-
-}
-
-
-void JetLag::on_cboDestinationCountry_currentTextChanged(const QString &arg1)
-{
-    // clear out origin cities menu and replace with selected country
-
-    Cities c;
-    std::vector<City> t;
-    t = c.getCitiesForCountry(arg1.toStdString());
-    ui->cboDestinationName->clear();
-    for (int var = 0; var < t.size(); ++var)
-    {
-        QString s;
-
-         s = QString::fromStdString(t[var].cityName);
-         ui->cboDestinationName->addItem(s);
-
-    }
-}
 

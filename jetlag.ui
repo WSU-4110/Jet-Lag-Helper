@@ -6,34 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>499</width>
-    <height>471</height>
+    <width>733</width>
+    <height>728</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>JetLag</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QComboBox" name="cboOriginName">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>50</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="cboDestinationName">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>130</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="cmdGetPlan">
     <property name="geometry">
      <rect>
@@ -50,8 +30,8 @@
    <widget class="QLabel" name="lblOrigin">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>60</y>
+      <x>10</x>
+      <y>100</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -63,8 +43,8 @@
    <widget class="QLabel" name="lblDestination">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>140</y>
+      <x>10</x>
+      <y>130</y>
       <width>101</width>
       <height>21</height>
      </rect>
@@ -204,50 +184,24 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:7.8pt;&quot;&gt;happy&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="cboOriginCountry">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>10</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblOrigin_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>101</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Origin Country</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="cboDestinationCountry">
+   <widget class="QLineEdit" name="txtOriginCityName">
     <property name="geometry">
      <rect>
       <x>160</x>
       <y>90</y>
-      <width>241</width>
+      <width>201</width>
       <height>31</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="lblDestination_2">
+   <widget class="QLineEdit" name="txtDestinationCityName">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>100</y>
-      <width>101</width>
-      <height>21</height>
+      <x>160</x>
+      <y>130</y>
+      <width>201</width>
+      <height>31</height>
      </rect>
-    </property>
-    <property name="text">
-     <string>Destination Country</string>
     </property>
    </widget>
   </widget>
@@ -256,7 +210,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>499</width>
+     <width>733</width>
      <height>21</height>
     </rect>
    </property>

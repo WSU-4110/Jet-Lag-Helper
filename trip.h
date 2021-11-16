@@ -27,7 +27,7 @@ class Trip
         int arrivalHourDestination();
 
 private:
-    static constexpr double FLIGHTSPEED_KPH = 900.00;
+    static constexpr double FLIGHTSPEED_KPH = 800.00;
 
 
     double haversine(double lat1, double lon1, double lat2, double lon2);
