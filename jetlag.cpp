@@ -3,7 +3,7 @@
 #include "city.h"
 #include "cities.h"
 #include "trip.h"
-
+#include <QNetworkAccessManager>
 
 #define _USE_MATH_DEFINES
 #include <iostream>
@@ -47,6 +47,14 @@ JetLag::~JetLag()
     delete ui;
 }
 
+void JetLag::downloadDone(QNetworkReply *reply)
+{
+   //FIX TODO
+    QByteArray jpegData = reply->readAll();
+    QPixmap pixmap;
+    pixmap.loadFromData(jpegData);
+    ui->lblMap->setPixmap(pixmap);
+}
 
 void JetLag::on_cmdGetPlan_clicked()
 {
@@ -56,7 +64,7 @@ void JetLag::on_cmdGetPlan_clicked()
     Cities c;
     std::string s;
     QString s2;
-    int leaveTime = 0;
+   // int leaveTime = 0;
     s2 = ui->txtOriginCityName->text();
     s = s2.toStdString();
     o = c.getCityByName(s);
@@ -76,6 +84,18 @@ void JetLag::on_cmdGetPlan_clicked()
 
     //s = ui->cboOriginName->currentText();
    ui->txtSleepSuggestion->setText(QString::fromStdString(t.sleepSugestion()));
+   ui->txtMapURL->setText(QString::fromStdString(t.mapURL()));
+
+   QUrl url (QString::fromStdString(t.mapURL()));
+   this->mManager = new QNetworkAccessManager(this);
+
+   connect(mManager, SIGNAL(finished(QNetworkReply*)),this, SLOT(downloadDone(QNetworkReply*)));
+
+   QNetworkRequest r(url);
+   mManager->get(r);
+
+
+
 }
 
 

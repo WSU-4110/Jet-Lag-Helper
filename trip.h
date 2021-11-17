@@ -26,6 +26,8 @@ class Trip
 
         int arrivalHourDestination();
 
+        std::string mapURL();
+
 private:
     static constexpr double FLIGHTSPEED_KPH = 800.00;
 

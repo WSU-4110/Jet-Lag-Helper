@@ -20,6 +20,10 @@ private slots:
 
     void on_JetLag_tabifiedDockWidgetActivated(QDockWidget *dockWidget);
 
+    void on_cboOriginCountry_currentTextChanged(const QString &arg1);
+
+    void on_cboDestinationCountry_currentTextChanged(const QString &arg1);
+
 private:
     Ui::JetLag *ui;
 };

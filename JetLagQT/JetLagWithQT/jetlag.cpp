@@ -200,6 +200,7 @@ public:
                 r.push_back(c);
             }
         }
+        std::sort(r.begin(),r.end());
         return r;
     };
 
@@ -220,6 +221,9 @@ public:
                 r.push_back(*iter);
             }
         }
+
+        std::sort(r.begin(), r.end(), [](const City& lhs, const City& rhs) {return  lhs.cityName < rhs.cityName;});
+
         return r;
     }
 
@@ -395,17 +399,16 @@ JetLag::JetLag(QWidget *parent)
 {
     ui->setupUi(this);
     Cities c;
-    // fill cities collection
-   for (int i = 0; i < c.allCities.size(); i++)
-   {
-       std::string s;
-       s = c.allCities[i].cityName;
-       QString q;
-       q = QString::fromStdString(s);
-       ui->cboOriginName->addItem(q);
-       ui->cboDestinationName->addItem(q);
+    std::vector<std::string> u;
+    u = c.getDistinctCountries();
+    for (int j = 0; j < u.size(); j++)
+    {
+        QString countryName;
+        countryName = QString::fromStdString(u[j]);
+        ui->cboOriginCountry->addItem(countryName);
+        ui->cboDestinationCountry->addItem(countryName);
+    }
 
-   }
 
 
    /* // Add cities to combo boxes
@@ -435,6 +438,7 @@ void JetLag::on_cmdGetPlan_clicked()
     Cities c;
     std::string s;
     QString s2;
+    int leaveTime = 0;
     s2 = ui->cboOriginName->currentText();
     s = s2.toStdString();
     o = c.getCityByName(s);
@@ -443,8 +447,14 @@ void JetLag::on_cmdGetPlan_clicked()
     s = s2.toStdString();
     d = c.getCityByName(s);
 
-    Trip t(o,d,8);
 
+
+
+    Trip t(o,d,ui->spinBox->value());
+
+    ui->txtFlightDistance->setText(QString::number(t.distanceTravelledKM()));
+    ui->txtArrivalHour->setText(QString::number(t.arrivalHourDestination()));
+    ui->txtTravelTime->setText(QString::number(t.travelTimeHours()));
 
     //s = ui->cboOriginName->currentText();
    ui->txtSleepSuggestion->setText(QString::fromStdString(t.sleepSugestion()));
@@ -454,5 +464,44 @@ void JetLag::on_cmdGetPlan_clicked()
 void JetLag::on_JetLag_tabifiedDockWidgetActivated(QDockWidget *dockWidget)
 {
 
+}
+
+
+void JetLag::on_cboOriginCountry_currentTextChanged(const QString &arg1)
+{
+    // clear out origin cities menu and replace with selected country
+
+    Cities c;
+    std::vector<City> t;
+    t = c.getCitiesForCountry(arg1.toStdString());
+    ui->cboOriginName->clear();
+    for (int var = 0; var < t.size(); ++var)
+    {
+        QString s;
+
+         s = QString::fromStdString(t[var].cityName);
+         ui->cboOriginName->addItem(s);
+
+    }
+
+}
+
+
+void JetLag::on_cboDestinationCountry_currentTextChanged(const QString &arg1)
+{
+    // clear out origin cities menu and replace with selected country
+
+    Cities c;
+    std::vector<City> t;
+    t = c.getCitiesForCountry(arg1.toStdString());
+    ui->cboDestinationName->clear();
+    for (int var = 0; var < t.size(); ++var)
+    {
+        QString s;
+
+         s = QString::fromStdString(t[var].cityName);
+         ui->cboDestinationName->addItem(s);
+
+    }
 }
 

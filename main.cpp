@@ -1,5 +1,5 @@
 #include "jetlag.h"
-
+#include <QNetworkAccessManager>
 #include <QApplication>
 
 int main(int argc, char *argv[])

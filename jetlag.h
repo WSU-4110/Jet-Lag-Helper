@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include <QCompleter>
-
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class JetLag; }
@@ -16,7 +17,9 @@ class JetLag : public QMainWindow
 public:
     JetLag(QWidget *parent = nullptr);
     ~JetLag();
-
+    QNetworkAccessManager *mManager;
+public slots:
+        void downloadDone(QNetworkReply *reply);
 private slots:
     void on_cmdGetPlan_clicked();
 

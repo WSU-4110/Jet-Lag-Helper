@@ -42,6 +42,10 @@ public:
     QTextBrowser *txtTravelTime;
     QTextBrowser *txtArrivalHour;
     QTextBrowser *txtSleepSuggestion;
+    QComboBox *cboOriginCountry;
+    QLabel *lblOrigin_2;
+    QComboBox *cboDestinationCountry;
+    QLabel *lblDestination_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -57,25 +61,25 @@ public:
         cboOriginName->setGeometry(QRect(160, 50, 241, 31));
         cboDestinationName = new QComboBox(centralwidget);
         cboDestinationName->setObjectName(QString::fromUtf8("cboDestinationName"));
-        cboDestinationName->setGeometry(QRect(160, 90, 241, 31));
+        cboDestinationName->setGeometry(QRect(160, 130, 241, 31));
         cmdGetPlan = new QPushButton(centralwidget);
         cmdGetPlan->setObjectName(QString::fromUtf8("cmdGetPlan"));
-        cmdGetPlan->setGeometry(QRect(160, 170, 201, 28));
+        cmdGetPlan->setGeometry(QRect(160, 210, 201, 28));
         lblOrigin = new QLabel(centralwidget);
         lblOrigin->setObjectName(QString::fromUtf8("lblOrigin"));
         lblOrigin->setGeometry(QRect(20, 60, 101, 21));
         lblDestination = new QLabel(centralwidget);
         lblDestination->setObjectName(QString::fromUtf8("lblDestination"));
-        lblDestination->setGeometry(QRect(20, 100, 101, 21));
+        lblDestination->setGeometry(QRect(20, 140, 101, 21));
         spinBox = new QSpinBox(centralwidget);
         spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setGeometry(QRect(160, 130, 91, 31));
+        spinBox->setGeometry(QRect(160, 170, 91, 31));
         spinBox->setMinimum(0);
         spinBox->setMaximum(23);
         spinBox->setValue(8);
         lblDepartureHour = new QLabel(centralwidget);
         lblDepartureHour->setObjectName(QString::fromUtf8("lblDepartureHour"));
-        lblDepartureHour->setGeometry(QRect(20, 130, 101, 21));
+        lblDepartureHour->setGeometry(QRect(20, 170, 101, 21));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 360, 151, 41));
@@ -100,10 +104,22 @@ public:
         txtSleepSuggestion = new QTextBrowser(centralwidget);
         txtSleepSuggestion->setObjectName(QString::fromUtf8("txtSleepSuggestion"));
         txtSleepSuggestion->setGeometry(QRect(160, 370, 211, 31));
+        cboOriginCountry = new QComboBox(centralwidget);
+        cboOriginCountry->setObjectName(QString::fromUtf8("cboOriginCountry"));
+        cboOriginCountry->setGeometry(QRect(160, 10, 241, 31));
+        lblOrigin_2 = new QLabel(centralwidget);
+        lblOrigin_2->setObjectName(QString::fromUtf8("lblOrigin_2"));
+        lblOrigin_2->setGeometry(QRect(20, 20, 101, 21));
+        cboDestinationCountry = new QComboBox(centralwidget);
+        cboDestinationCountry->setObjectName(QString::fromUtf8("cboDestinationCountry"));
+        cboDestinationCountry->setGeometry(QRect(160, 90, 241, 31));
+        lblDestination_2 = new QLabel(centralwidget);
+        lblDestination_2->setObjectName(QString::fromUtf8("lblDestination_2"));
+        lblDestination_2->setGeometry(QRect(20, 100, 101, 21));
         JetLag->setCentralWidget(centralwidget);
         menubar = new QMenuBar(JetLag);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 499, 26));
+        menubar->setGeometry(QRect(0, 0, 499, 21));
         JetLag->setMenuBar(menubar);
         statusbar = new QStatusBar(JetLag);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -124,12 +140,14 @@ public:
         label->setText(QCoreApplication::translate("JetLag", "Sleep Suggestion", nullptr));
         label_2->setText(QCoreApplication::translate("JetLag", "Flight Distance (KM)", nullptr));
         label_3->setText(QCoreApplication::translate("JetLag", "Travel Time (Hours)", nullptr));
-        label_4->setText(QCoreApplication::translate("JetLag", "Arrival Hour:", nullptr));
+        label_4->setText(QCoreApplication::translate("JetLag", "Arrival Hour (Local):", nullptr));
         txtSleepSuggestion->setHtml(QCoreApplication::translate("JetLag", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">happy</p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:7.8pt;\">happy</span></p></body></html>", nullptr));
+        lblOrigin_2->setText(QCoreApplication::translate("JetLag", "Origin Country", nullptr));
+        lblDestination_2->setText(QCoreApplication::translate("JetLag", "Destination Country", nullptr));
     } // retranslateUi
 
 };

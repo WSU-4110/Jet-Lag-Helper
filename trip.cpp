@@ -69,6 +69,49 @@ int Trip::arrivalHourDestination() //returns the hour at arrival in local time
     return r;
 }
 
+std::string Trip::mapURL()
+{
+       std::string pin1;
+       std::string pin2;
+       std::string url;
+
+       double midLat= (destinationCity.lattitude + originCity.lattitude) / 2;
+       double midLong= (destinationCity.longitude + originCity.longitude) / 2;
+
+       std::string centerPoint;
+
+       centerPoint = std::to_string(midLat) + "," + std::to_string(midLong);
+
+        std::string zoom = "1";
+        if (distanceTravelledKM() < 1000)
+        {
+            zoom = "6";
+        }
+        else if (distanceTravelledKM() < 2000)
+        {
+            zoom = "4";
+        }
+        else if (distanceTravelledKM() < 3000)
+        {
+            zoom = "3";
+        }
+
+       url = "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/" + centerPoint + "/" + zoom + "?mapSize=500,500&";
+
+
+
+
+       pin1 = "pp=" + std::to_string(originCity.lattitude) + "," + std::to_string(originCity.longitude) +  ";52;" + originCity.cityName;
+       pin2 = "pp=" + std::to_string(destinationCity.lattitude) + "," + std::to_string(destinationCity.longitude) +  ";52;" + destinationCity.cityName;
+       url = url + pin1;
+       url = url +"&" + pin2;
+       url = url + "&key=AqPQw6yAWUMKzyCKK9XAm_Yg4A1P0nbb5khDuzVlnI8pKFxY7TbD3sP2iowMW6vc";
+       return url;
+    //return "https://dev.virtualearth.net/REST/v1/Imagery/Map/Road/47.619048,-22.35384/1?mapSize=500,500&pp=47.620495,-83.34931;52;Detroit&pp=47.6,-122.35;34;Seattle&key=AqPQw6yAWUMKzyCKK9XAm_Yg4A1P0nbb5khDuzVlnI8pKFxY7TbD3sP2iowMW6vc";
+}
+
+
+
 
 double Trip::haversine(double lat1, double lon1, double lat2, double lon2)
 {
