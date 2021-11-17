@@ -13,7 +13,7 @@ City::City()
 }
 
 // Extended Constructor
-City::City(int p_cityId, std::string p_cityName, std::string p_countryName, double p_lattitude, double p_longitude, int p_timeZoneGMTOffset )
+City::City(int p_cityId, std::string p_cityName, std::string p_countryName, double p_lattitude, double p_longitude, double p_timeZoneGMTOffset )
 {
     cityId = p_cityId;
     cityName = p_cityName;
@@ -24,7 +24,7 @@ City::City(int p_cityId, std::string p_cityName, std::string p_countryName, doub
 
 }
 
-void  City::setAllParameters(int p_cityId, std::string p_cityName, std::string p_countryName, double p_lattitude, double p_longitude, int p_timeZoneGMTOffset)
+void  City::setAllParameters(int p_cityId, std::string p_cityName, std::string p_countryName, double p_lattitude, double p_longitude, double p_timeZoneGMTOffset)
 {
     cityId = p_cityId;
     cityName = p_cityName;
