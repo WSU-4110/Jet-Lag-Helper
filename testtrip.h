@@ -19,8 +19,11 @@ private slots:
     void testA();
     void NYtoChicagoDistance();
     void NYtoChicagoTravelTimeHours();
-
-
+    void NYtoLASleepRec();
+    void LAtoNYSleepRec();
+    void ChicagotoNYSleepRec();
+    void NYtoLAArrivalTimeLocal();
+    void DetroitToLondonMapURL();
 };
 
 #endif // TESTTRIP_H
