@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 5.0.3, 2021-11-15T22:38:07. -->
+<!-- Written by QtCreator 5.0.3, 2021-12-01T21:18:16. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -67,7 +67,13 @@
     <value type="bool" key="AutoTest.Framework.QtQuickTest">true</value>
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="AutoTest.CheckStates"/>
+   <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="1@C:/Users/jozef/OneDrive/Documents/GitHub/Jet-Lag-Helper/testtrip.cpp:NYtoChicagoDistance">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/jozef/OneDrive/Documents/GitHub/Jet-Lag-Helper/testtrip.cpp:NYtoChicagoTravelTimeHours">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/jozef/OneDrive/Documents/GitHub/Jet-Lag-Helper/testtrip.cpp:init">Unchecked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/jozef/OneDrive/Documents/GitHub/Jet-Lag-Helper/testtrip.cpp:testA">Checked</value>
+    <value type="Qt::CheckState" key="1@C:/Users/jozef/OneDrive/Documents/GitHub/Jet-Lag-Helper/testtrip.h:TestTrip">Checked</value>
+   </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
    <valuelist type="QVariantList" key="ClangCodeModel.CustomCommandLineKey">
