@@ -21,8 +21,16 @@ void TestCities::cityID2(){
 
 }
 
-void TestCities::cityByName(){
+void TestCities::cityByName1(){
+    Cities c;
+    City city = c.getCityByName("Detroit");
+    QVERIFY(city.debugString() == "Detroit" "United States");
+}
 
+void TestCities::cityByName2(){
+    Cities c;
+    City city = c.getCityByName("Shanghai");
+    QVERIFY(city.debugString() == "Shanghai" "China");
 }
 
 QTEST_MAIN(TestCities);
