@@ -13,10 +13,10 @@ class TestCities: public QObject
 
 private slots:
     void init();
-
     void cityID1();
     void cityID2();
-    void cityByName();
+    void cityByName1();
+    void cityByName2();
 
 };
 
