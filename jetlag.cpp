@@ -84,7 +84,7 @@ void JetLag::on_cmdGetPlan_clicked()
 
     //s = ui->cboOriginName->currentText();
    ui->txtSleepSuggestion->setText(QString::fromStdString(t.sleepSugestion()));
-   ui->txtMapURL->setText(QString::fromStdString(t.mapURL()));
+   //ui->txtMapURL->setText(QString::fromStdString(t.mapURL()));
 
    QUrl url (QString::fromStdString(t.mapURL()));
    this->mManager = new QNetworkAccessManager(this);

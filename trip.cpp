@@ -33,7 +33,15 @@ std::string Trip::sleepSugestion()
 
     if (travelTimeHours() > 3 && destinationCity.timeZoneGMTOffset > originCity.timeZoneGMTOffset)
     {
-        result = "Sleep on the flight.";
+        if (travelTimeHours() > 6)
+        {
+            result = "Sleep on the second half of the flight.";
+        }
+        else
+        {
+            result = "Sleep on the flight.";
+        }
+
     }
 
     if (travelTimeHours() > 3 && destinationCity.timeZoneGMTOffset < originCity.timeZoneGMTOffset)
