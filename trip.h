@@ -21,6 +21,12 @@ class Trip
         double travelTimeHours();
 
         std::string sleepSugestion();
+        
+        std::string caffeineSugestion();
+
+        std::string hydrationSuggestion();
+
+        std::string additionalTips();
 
         std::string debugString();
 

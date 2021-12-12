@@ -84,7 +84,14 @@ void JetLag::on_cmdGetPlan_clicked()
 
     //s = ui->cboOriginName->currentText();
    ui->txtSleepSuggestion->setText(QString::fromStdString(t.sleepSugestion()));
+
    //ui->txtMapURL->setText(QString::fromStdString(t.mapURL()));
+
+   ui->txtCaffeineSuggestion->setText(QString::fromStdString(t.caffeineSugestion()));
+   ui->txtHydrationSuggestion->setText(QString::fromStdString(t.hydrationSuggestion()));
+   ui->txtAdditionalTips->setText(QString::fromStdString(t.additionalTips()));
+   ui->txtMapURL->setText(QString::fromStdString(t.mapURL()));
+
 
    QUrl url (QString::fromStdString(t.mapURL()));
    this->mManager = new QNetworkAccessManager(this);

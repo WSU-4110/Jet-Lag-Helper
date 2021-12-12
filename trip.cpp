@@ -52,6 +52,58 @@ std::string Trip::sleepSugestion()
     return result;
 }
 
+std::string Trip::caffeineSugestion()
+{
+    std::string result = "NULL";
+    if (travelTimeHours() < 3)
+    {
+        result = "Drink caffeine to stay awake on flight.";
+    }
+
+    if (travelTimeHours() > 3 && destinationCity.timeZoneGMTOffset > originCity.timeZoneGMTOffset)
+    {
+        result = "Avoid caffeine on the flight.";
+    }
+
+    if (travelTimeHours() > 3 && destinationCity.timeZoneGMTOffset < originCity.timeZoneGMTOffset)
+    {
+        result = "Avoid caffeine upon landing.";
+    }
+
+    return result;
+}
+
+std::string Trip::hydrationSuggestion()
+{
+    std::string result = "NULL";
+    if (travelTimeHours() < 3)
+    {
+        result = "Stay hydrated during flight";
+    }
+
+    if (travelTimeHours() > 3 && destinationCity.timeZoneGMTOffset > originCity.timeZoneGMTOffset)
+    {
+        result = "Stay hydrated during flight.";
+    }
+
+    if (travelTimeHours() > 3 && destinationCity.timeZoneGMTOffset < originCity.timeZoneGMTOffset)
+    {
+        result = "Stay hydrated during flight.";
+    }
+
+    return result;
+}
+
+std::string Trip::additionalTips(){
+   std::ostringstream result;
+   result << "Bring empty bottle to fill up after getting passed from security"
+          << "\n" << "Bring a book or tablet"
+          << "\n" << "Bring neck pillow and headphones to have a better sleep during flight"
+          << "\n" << "Make sure your phone is fully charged";
+   return result.str();
+
+}
+
 std::string  Trip::debugString()
 {
    std::string s;
@@ -59,7 +111,10 @@ std::string  Trip::debugString()
    s =  "\n\n Trip Debug";
     s = s +  "\n distance km: " + std::to_string( distanceTravelledKM());
     s = s + "\n" + "travel time hours: " +  std::to_string( travelTimeHours());
-    s = s +  "\n" + "sleep reccomendation: " +    sleepSugestion() ;
+    s = s +  "\n" + "sleep recommendation: " +    sleepSugestion() ;
+    s = s +  "\n" + "caffeine recommendation: " +    caffeineSugestion() ;
+    s = s +  "\n" + "hydration recommendation: " +    hydrationSuggestion() ;
+    s = s +  "\n" + "additional tips: " + additionalTips();
     s = s +  "\n" + "start hour in local time: " +  std::to_string( startHourAtOrigin);
     s = s +  "\n" + "arival hour at destination " +  std::to_string( arrivalHourDestination());
     return s;
