@@ -90,7 +90,7 @@ void JetLag::on_cmdGetPlan_clicked()
    ui->txtCaffeineSuggestion->setText(QString::fromStdString(t.caffeineSugestion()));
    ui->txtHydrationSuggestion->setText(QString::fromStdString(t.hydrationSuggestion()));
    ui->txtAdditionalTips->setText(QString::fromStdString(t.additionalTips()));
-   ui->txtMapURL->setText(QString::fromStdString(t.mapURL()));
+   //ui->txtMapURL->setText(QString::fromStdString(t.mapURL()));
 
 
    QUrl url (QString::fromStdString(t.mapURL()));

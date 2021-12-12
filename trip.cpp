@@ -95,12 +95,12 @@ std::string Trip::hydrationSuggestion()
 }
 
 std::string Trip::additionalTips(){
-   std::ostringstream result;
-   result << "Bring empty bottle to fill up after getting passed from security"
-          << "\n" << "Bring a book or tablet"
-          << "\n" << "Bring neck pillow and headphones to have a better sleep during flight"
-          << "\n" << "Make sure your phone is fully charged";
-   return result.str();
+   std::string result;
+   result = "- Bring empty bottle to fill up after getting passed from security";
+   result = result + "\n" + "- Chew gum to reduce ear pain due to air pressure change";
+   result = result +  "\n " + "- Bring neck pillow and headphones to have a better sleep during flight";
+   result = result + "\n" + "- Make sure your phone is fully charged";
+   return result;
 
 }
 
